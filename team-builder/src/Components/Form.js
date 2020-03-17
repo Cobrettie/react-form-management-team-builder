@@ -9,6 +9,7 @@ const Form = (props) => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    props.addTeamMember({...user, id: Date.now()})
     setUser({name: '', email: '', role: ''})
   }
 
@@ -17,14 +18,14 @@ const Form = (props) => {
   return (
     <div>
       <h1>Form</h1>
-      <form onSubmit={event => handleSubmit(event)}>
+      <form onSubmit={handleSubmit}>
         <label>
           Name:
           <input 
             type='text'
             name='name'
             value={user.name}
-            onChange={event => {handleChange(event)}}
+            onChange={handleChange}
           />
         </label>
         <label>
@@ -33,7 +34,7 @@ const Form = (props) => {
             type='email'
             name='email'
             value={user.email}
-            onChange={event => {handleChange(event)}}
+            onChange={handleChange}
           />
         </label>
         <label>
@@ -42,10 +43,10 @@ const Form = (props) => {
             type='text'
             name='role'
             value={user.role}
-            onChange={event => {handleChange(event)}}
+            onChange={handleChange}
           />
         </label>
-        <button>Submit</button>
+        <button type='submit'>Submit</button>
       </form>
     </div>
   )
