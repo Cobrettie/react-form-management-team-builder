@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Form from './Components/Form';
+import TeamMembers from './Components/TeamMembers';
 import './App.css';
 
 // { name: '', email: '', role: ''}
@@ -7,7 +8,7 @@ import './App.css';
 const App = () => {
   const [teamMembers, setTeamMembers] = useState([
     {
-      id: 1,
+      id: Date.now(),
       name: 'Cobrettie',
       email: 'test@yahoo.com',
       role: 'engineer'
@@ -24,6 +25,7 @@ const App = () => {
     <div className="App">
       <h1>Team Builder</h1>
       <Form addTeamMember={addTeamMember} />
+      <TeamMembers teamMembers={teamMembers} />
     </div>
   );
 }
