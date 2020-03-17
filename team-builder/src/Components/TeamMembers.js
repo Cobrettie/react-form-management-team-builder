@@ -6,10 +6,10 @@ const TeamMembers = props => {
     <div>
       <h2>Team Members</h2>
       {props.teamMembers.map(member => (
-        <div key={member.id}>
-          <h2>{member.name}</h2>
-          <p>{member.email}</p>
-          <p>{member.role}</p>
+        <div key={member.id} className='member-card'>
+          <p>Name: {member.name}</p>
+          <p>Email: {member.email}</p>
+          <p>Role: {member.role}</p>
         </div>
       ))}
     </div>
