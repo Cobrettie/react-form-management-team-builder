@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Route } from 'react-router-dom';
+import Nav from './Components/Nav/Nav';
 import Form from './Components/Form';
 import TeamMembers from './Components/TeamMembers/TeamMembers';
 import './App.css';
@@ -27,11 +29,20 @@ function App() {
   }
 
   return (
-    console.log(teamMembers),
     <div className="App">
+      <Nav />
       <MainHeading>Team Builder Application</MainHeading>
-      <Form addTeamMember={addTeamMember} />
-      <TeamMembers teamMembers={teamMembers} />
+      {/* <Form addTeamMember={addTeamMember} /> */}
+      {/* <TeamMembers teamMembers={teamMembers} /> */}
+
+      <Route 
+        exact path='/'  
+        render={() => <Form addTeamMember={addTeamMember} />}
+      />
+      <Route
+        exact path='teammembers'
+        render={() => <TeamMembers teamMembers={teamMembers} />}
+      />
     </div>
   );
 }
