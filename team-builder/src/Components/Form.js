@@ -15,6 +15,10 @@ const StyledForm = styled.form`
   align-items: center;
 `;
 
+const FormHeader = styled.h2`
+  color: #373737;
+`;
+
 const Label = styled.label`
   font-size: 20px;
 `;
@@ -47,7 +51,7 @@ function Form(props) {
 
   return (
     <div>
-      <h2>Register</h2>
+      <FormHeader>Register</FormHeader>
       <FormContainer>
         <StyledForm onSubmit={handleSubmit}>
           <Label>

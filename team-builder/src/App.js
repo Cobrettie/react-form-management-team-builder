@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 const MainHeading = styled.h2`
   font-size: 32px;
+  color: #373737;
 `;
 
 // { name: '', email: '', role: ''}
