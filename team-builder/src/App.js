@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import Form from './Components/Form';
-import TeamMembers from './Components/TeamMembers';
+import TeamMembers from './Components/TeamMembers/TeamMembers';
 import './App.css';
+import styled from 'styled-components';
+
+const MainHeading = styled.h2`
+  font-size: 32px;
+`;
 
 // { name: '', email: '', role: ''}
 
-const App = () => {
+function App() {
   const [teamMembers, setTeamMembers] = useState([
     {
       id: Date.now(),
@@ -15,7 +20,7 @@ const App = () => {
     }
   ]);
 
-  const addTeamMember = newTeamMember => {
+  function addTeamMember(newTeamMember) {
     console.log('adding member', newTeamMember);
     setTeamMembers([...teamMembers, newTeamMember])
   }
@@ -23,7 +28,7 @@ const App = () => {
   return (
     console.log(teamMembers),
     <div className="App">
-      <h1>Team Builder</h1>
+      <MainHeading>Team Builder Application</MainHeading>
       <Form addTeamMember={addTeamMember} />
       <TeamMembers teamMembers={teamMembers} />
     </div>

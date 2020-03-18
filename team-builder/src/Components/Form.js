@@ -1,13 +1,43 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-const Form = (props) => {
+const FormContainer = styled.div`
+  // border: 1px solid #373737;
+  border-radius: 5px;
+  width: 30%;
+  margin: 0 auto;
+  background-color: #fafafa;
+`;
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+`;
+
+const Label = styled.label`
+  font-size: 20px;
+`;
+
+const Input = styled.input`
+  margin: 20px 0 0 20px;
+  border-radius: 5px;
+`;
+
+const Button = styled.button`
+  margin: 20px 0;
+  font-size: 20px;
+  border-radius: 5px;
+`;
+
+function Form(props) {
   const [user, setUser] = useState({ name: '', email: '', role: ''});
 
-  const handleChange = event => {
+  function handleChange(event) {
     setUser({...user, [event.target.name]: event.target.value})
   }
 
-  const handleSubmit = event => {
+  function handleSubmit(event) {
     event.preventDefault();
     props.addTeamMember({...user, id: Date.now()})
     setUser({name: '', email: '', role: ''})
@@ -17,37 +47,39 @@ const Form = (props) => {
 
   return (
     <div>
-      <h1>Form</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input 
-            type='text'
-            name='name'
-            value={user.name}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Email:
-          <input 
-            type='email'
-            name='email'
-            value={user.email}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Role:
-          <input 
-            type='text'
-            name='role'
-            value={user.role}
-            onChange={handleChange}
-          />
-        </label>
-        <button type='submit'>Submit</button>
-      </form>
+      <h2>Register</h2>
+      <FormContainer>
+        <StyledForm onSubmit={handleSubmit}>
+          <Label>
+            Name:
+            <Input 
+              type='text'
+              name='name'
+              value={user.name}
+              onChange={handleChange}
+            />
+          </Label>
+          <Label>
+            Email:
+            <Input 
+              type='email'
+              name='email'
+              value={user.email}
+              onChange={handleChange}
+            />
+          </Label>
+          <Label>
+            Role:
+            <Input 
+              type='text'
+              name='role'
+              value={user.role}
+              onChange={handleChange}
+            />
+          </Label>
+          <Button type='submit'>Submit</Button>
+        </StyledForm>
+      </FormContainer>
     </div>
   )
 }

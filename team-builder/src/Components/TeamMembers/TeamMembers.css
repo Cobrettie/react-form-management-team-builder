@@ -1,0 +1,24 @@
+.mainHeading {
+  margin: 40px auto 20px;
+}
+
+.memberCardsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.memberCard {
+  border: 1px solid #373737;
+  border-radius: 5px;
+  width: 20%;
+  margin: 20px 30px;
+}
+
+.memberInfo {
+  color: #373737;
+  font-weight: 600;
+}
