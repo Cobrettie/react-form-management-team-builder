@@ -11,8 +11,6 @@ const MainHeading = styled.h2`
   color: #373737;
 `;
 
-// { name: '', email: '', role: ''}
-
 function App() {
   const [teamMembers, setTeamMembers] = useState([
     {
@@ -24,7 +22,7 @@ function App() {
   ]);
 
   function addTeamMember(newTeamMember) {
-    console.log('adding member', newTeamMember);
+    console.log('adding member', newTeamMember, teamMembers);
     setTeamMembers([...teamMembers, newTeamMember])
   }
 
@@ -40,7 +38,7 @@ function App() {
         render={() => <Form addTeamMember={addTeamMember} />}
       />
       <Route
-        exact path='teammembers'
+        exact path='/members'
         render={() => <TeamMembers teamMembers={teamMembers} />}
       />
     </div>
